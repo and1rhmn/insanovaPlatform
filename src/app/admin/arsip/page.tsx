@@ -55,7 +55,8 @@ const dummyData: Arsip[] = [
     title: "Sistem Informasi Pengadaan Barang",
     year: 2022,
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800",
+      // "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800",
+      "https://images.unsplash.com/photo-1584448141569-69f342da535c?q=80&w=741&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     description:
       "Sistem monitoring kinerja pegawai berbasis dashboard real-time.",
     category: "Digitalisasi Internal",
@@ -103,7 +104,6 @@ export default function ArsipPage() {
   const [search, setSearch] = useState("");
   const [selectedItem, setSelectedItem] = useState<Arsip | null>(null);
   const [openId, setOpenId] = useState<number | null>(null);
-  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   const filteredData = dummyData.filter((item) =>
     item.title.toLowerCase().includes(search.toLowerCase()),
@@ -298,7 +298,7 @@ export default function ArsipPage() {
               {/* ICON PREVIEW (SEJAJAR CLOSE BUTTON) */}
               <div className="absolute top-4 left-4 flex items-center gap-2">
                 <button
-                  onClick={() => setPreviewImage(selectedItem.image)}
+                  onClick={() => window.open(selectedItem.image, "_blank")}
                   className="bg-white/90 hover:bg-white p-2 rounded-full shadow-sm transition cursor-pointer"
                 >
                   <Eye size={16} />
@@ -396,7 +396,8 @@ export default function ArsipPage() {
       )}
 
       {/* FULL IMAGE PREVIEW */}
-      {previewImage && (
+
+      {/* {previewImage && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-[999] p-4"
           onClick={() => setPreviewImage(null)}
@@ -405,7 +406,6 @@ export default function ArsipPage() {
             className="relative inline-block"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* CLOSE BUTTON */}
             <button
               onClick={() => setPreviewImage(null)}
               className="absolute -top-3 -right-3 bg-white hover:bg-gray-100 p-2 rounded-full shadow-lg transition cursor-pointer"
@@ -413,7 +413,6 @@ export default function ArsipPage() {
               <X size={18} />
             </button>
 
-            {/* IMAGE */}
             <Image
               src={previewImage}
               alt="preview"
@@ -424,7 +423,7 @@ export default function ArsipPage() {
             />
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
