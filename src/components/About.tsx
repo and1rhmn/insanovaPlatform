@@ -52,17 +52,27 @@ export default function About() {
               <h5 className="text-xs font-semibold tracking-widest text-emerald-600 mb-2">
                 KERANGKA KONSEP
               </h5>
+
               <p className="text-gray-700 leading-relaxed">
-                Berdasarkan{" "}
+                Berdasarkan konsep{" "}
                 <span className="font-medium text-gray-900">
-                  CIAS (Creativity, Innovation, Adaptation, Sustainability)
+                  CIAS Corporate Innovation Model
                 </span>{" "}
-                dan{" "}
+                dan pendekatan{" "}
                 <span className="font-medium text-gray-900">
-                  CIMO (Context, Input, Mechanism, Output)
+                  CIMO (Corporate Innovation Model)
                 </span>
-                , inovasi dipandang sebagai proses yang menghubungkan ide,
-                eksekusi, dan dampak nyata.
+                , inovasi dipandang sebagai sistem dinamis yang memungkinkan
+                organisasi untuk terus belajar, beradaptasi, dan menciptakan
+                nilai secara berkelanjutan. Model CIMO menekankan tiga kemampuan
+                utama organisasi, yaitu{" "}
+                <span className="font-medium text-gray-900">sensing</span>{" "}
+                (mengenali peluang dan perubahan),{" "}
+                <span className="font-medium text-gray-900">seizing</span>{" "}
+                (menindaklanjuti peluang melalui proyek atau eksperimen), serta{" "}
+                <span className="font-medium text-gray-900">reconfiguring</span>{" "}
+                (menata ulang struktur, budaya, dan sistem kerja agar inovasi
+                dapat berjalan secara konsisten dan berkelanjutan).
               </p>
             </div>
 
