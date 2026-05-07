@@ -56,6 +56,13 @@ export default function KelolaInovasiPage() {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
   const [selectedItem, setSelectedItem] = useState<Inovasi | null>(null);
+  const handleEdit = (item: Inovasi) => {
+    console.log("Edit:", item);
+  };
+
+  const handleDelete = (id: number) => {
+    console.log("Delete:", id);
+  };
 
   const filteredData = dummyData.filter((item) => {
     const matchSearch = item.judul.toLowerCase().includes(search.toLowerCase());
