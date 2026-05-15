@@ -1,5 +1,5 @@
 "use client";
-
+import type { Context } from "chartjs-plugin-datalabels";
 import React from "react";
 import { Pie, Bar } from "react-chartjs-2";
 import {
@@ -125,8 +125,15 @@ function Grafik() {
       legend: { display: false },
 
       datalabels: {
-        anchor: "end" as const,
+        display: (context: Context) => {
+          const chart = context.chart;
+          const active = chart.getActiveElements();
+
+          return active.length > 0 && active[0].index === context.dataIndex;
+        },
+
         align: "right" as const,
+        anchor: "end" as const,
         formatter: (val: number) => val,
         color: "#111",
       },
