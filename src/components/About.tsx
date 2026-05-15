@@ -227,7 +227,7 @@ export default function About() {
                       Total Kontribusi
                     </p>
 
-                    <h4 className="text-5xl font-bold text-gray-900">138</h4>
+                    <h4 className="text-5xl font-bold text-gray-900">137</h4>
 
                     <div className="mt-6 h-1.5 rounded-full bg-gray-100 overflow-hidden">
                       <div className="w-[78%] h-full bg-emerald-500 rounded-full"></div>

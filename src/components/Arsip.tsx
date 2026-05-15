@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { Lock, Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
+
 import Image from "next/image";
 
 const dataArsip = [
@@ -201,15 +203,47 @@ export default function Arsip() {
   };
 
   const [selected, setSelected] = useState<ArsipItem | null>(null);
+  const [shake, setShake] = useState(false);
+  const [openAccess, setOpenAccess] = useState(false);
+  const [code, setCode] = useState("");
+  const [show, setShow] = useState(false);
+  const [error, setError] = useState("");
 
   // const activeData = dataArsip.find((d) => d.year === activeYear);
   const activeData = dataArsip.find((d) => d.year === activeYear)!;
+
+  const handleOpenSheet = () => {
+    if (!code) {
+      setError("Mohon masukkan kode akses");
+      setShake(true);
+
+      setTimeout(() => setShake(false), 400);
+      return;
+    }
+
+    if (code === "INSANOVA2026") {
+      window.open(
+        "https://docs.google.com/spreadsheets/d/1MSEQAAORhvTpy_0RkYs6RErlVjFQdN34XHZgielvEJw/edit",
+        "_blank",
+      );
+
+      setOpenAccess(false);
+      setCode("");
+      setError("");
+      setShake(false);
+    } else {
+      setError("Kode akses salah");
+      setShake(true);
+
+      setTimeout(() => setShake(false), 400);
+    }
+  };
 
   return (
     <section className="bg-gray-50 py-20 px-6" id="arsip">
       <div className="max-w-6xl mx-auto">
         {/* HEADER */}
-        <div className="mb-4">
+        <div className="mb-4 space-y-2">
           <p className="text-sm font-medium text-blue-600 tracking-widest uppercase">
             Innovation Archive
           </p>
@@ -217,6 +251,14 @@ export default function Arsip() {
           <h2 className="text-4xl font-bold text-gray-900 mt-1">
             Arsip Pemenang INSANOVA
           </h2>
+
+          <p className="text-sm text-gray-500 max-w-2xl leading-relaxed">
+            Arsip pemenang INSANOVA dari tahun ke tahun, dengan 3 karya terbaik
+            sebagai highlight tiap periode. Data lengkap tersedia melalui tombol
+            <span className="inline-flex items-center px-2 py-1 text-xs bg-blue-50 text-emerald-600 rounded-full">
+              Lihat Arsip Insanova.
+            </span>
+          </p>
         </div>
 
         {/* YEAR PAGINATION */}
@@ -229,7 +271,7 @@ export default function Arsip() {
                 key={item.year}
                 onClick={() => setActiveYear(item.year)}
                 className={`
-          px-4 py-1.5 rounded-full text-sm font-medium border transition
+          px-4 py-1.5 rounded-full text-sm font-medium border transition cursor-pointer
           ${
             isActive
               ? "bg-blue-600 text-white border-blue-600 shadow-sm"
@@ -267,6 +309,17 @@ export default function Arsip() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* CTA ARSIP SPREADSHEET */}
+        <div className="flex justify-center mt-10">
+          <button
+            onClick={() => setOpenAccess(true)}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-600 text-white text-sm font-medium shadow-sm hover:bg-blue-700 cursor-pointer"
+          >
+            Lihat Arsip Insanova
+            <span>↗</span>
+          </button>
         </div>
 
         {/* MODAL */}
@@ -318,6 +371,121 @@ export default function Arsip() {
           </div>
         )}
       </div>
+
+      {/* MODAL ACCESS */}
+      {openAccess && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-md px-4 animate-fadeIn">
+          {/* CARD */}
+          <div
+            className={`
+        w-full max-w-md bg-white rounded-2xl shadow-2xl
+        p-7 space-y-6
+        border border-gray-100
+        transform transition-all duration-200
+        ${shake ? "animate-shake" : "animate-popIn"}
+      `}
+          >
+            {/* HEADER */}
+            <div className="text-center space-y-3">
+              <div className="mx-auto w-12 h-12 flex items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <Lock size={20} />
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 tracking-tight">
+                  Akses Arsip Terkunci
+                </h3>
+                <p className="text-xs text-gray-500 mt-1">
+                  - Authorized personnel only -
+                </p>
+              </div>
+            </div>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleOpenSheet();
+              }}
+              className="space-y-6"
+            >
+              {/* INPUT */}
+              <div className="space-y-2">
+                <div className="relative">
+                  <input
+                    type={show ? "text" : "password"}
+                    value={code}
+                    onChange={(e) => {
+                      setCode(e.target.value);
+                      if (error) setError("");
+                    }}
+                    placeholder="Enter access code"
+                    autoFocus
+                    className={`
+              w-full px-4 py-3 pr-11 rounded-xl
+              border bg-gray-50
+              text-center tracking-widest font-mono text-gray-800
+
+              outline-none transition
+
+              focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+              hover:border-gray-300
+
+              ${error ? "border-red-400 focus:ring-red-200" : "border-gray-200"}
+            `}
+                  />
+
+                  {/* SHOW / HIDE */}
+                  <button
+                    type="button"
+                    onClick={() => setShow(!show)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-800 transition cursor-pointer"
+                  >
+                    {show ? <EyeOff size={18} /> : <Eye size={18} />}
+                  </button>
+                </div>
+
+                {/* ERROR */}
+                {error && (
+                  <p className="text-sm text-red-500 text-center animate-fadeIn">
+                    {error}
+                  </p>
+                )}
+              </div>
+
+              {/* BUTTONS */}
+              <div className="flex gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setOpenAccess(false)}
+                  className="
+      flex-1 py-2.5 rounded-xl
+      border border-gray-200
+      text-gray-700 text-sm font-medium
+      hover:bg-gray-50 hover:border-gray-300
+      active:scale-[0.98]
+      transition cursor-pointer
+    "
+                >
+                  Batal
+                </button>
+
+                <button
+                  type="submit"
+                  className="
+      flex-1 py-2.5 rounded-xl
+      bg-blue-600 text-white text-sm font-medium
+      shadow-md shadow-blue-200
+      hover:bg-blue-700 hover:shadow-lg
+      active:scale-[0.98]
+      transition cursor-pointer
+    "
+                >
+                  Buka Akses
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

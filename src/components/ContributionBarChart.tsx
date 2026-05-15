@@ -37,7 +37,7 @@ const defaultData = [
   { label: "Kantor Pusat", value: 17 },
   { label: "Sumatera Utara", value: 6 },
   { label: "Sumatera Selatan", value: 13 },
-  { label: "DKI Jakarta", value: 9 },
+  { label: "DKI Jakarta", value: 8 },
   { label: "Jawa Barat", value: 17 },
   { label: "Jawa Tengah & DIY", value: 15 },
   { label: "Jawa Timur", value: 9 },
