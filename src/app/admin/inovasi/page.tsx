@@ -649,8 +649,8 @@ export default function KelolaInovasiPage() {
                 </div>
 
                 <p className="text-gray-700 leading-7  text-sm">
-                  Mengembangkan platform "Digital-to-Community Activation
-                  Engine" yang berfungsi sebagai pusat komando koordinasi
+                  Mengembangkan platform &quot;Digital-to-Community Activation
+                  Engine&quot; yang berfungsi sebagai pusat komando koordinasi
                   program. Platform ini menggunakan algoritma analisis sentimen
                   untuk memetakan kebutuhan komunitas, kemudian secara otomatis
                   mendistribusikan tugas kepada koordinator wilayah di Kantor
