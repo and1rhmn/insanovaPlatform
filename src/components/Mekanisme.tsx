@@ -231,8 +231,7 @@ export default function Mekanisme() {
 
             <div className="mt-8 relative z-10">
               <a
-                // href="https://docs.google.com/forms/d/e/1FAIpQLSenpbvyY_XZAwZ4-IaBm9o3VxyjQI16JPDli8wMC-rzitdhNg/viewform"
-                href="https://drive.google.com/file/d/1YHlDn5vyNF8yeuqfwaT9QJDTT0A5wTXu/view?usp=drive_link"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSenpbvyY_XZAwZ4-IaBm9o3VxyjQI16JPDli8wMC-rzitdhNg/viewform"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="

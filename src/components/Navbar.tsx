@@ -99,8 +99,7 @@ export default function Navbar() {
           </div>
 
           <a
-            // href="https://docs.google.com/forms/d/e/1FAIpQLSenpbvyY_XZAwZ4-IaBm9o3VxyjQI16JPDli8wMC-rzitdhNg/viewform"
-            href="https://drive.google.com/file/d/1YHlDn5vyNF8yeuqfwaT9QJDTT0A5wTXu/view?usp=drive_link"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSenpbvyY_XZAwZ4-IaBm9o3VxyjQI16JPDli8wMC-rzitdhNg/viewform"
             className="flex items-center gap-2 px-4 py-1.5 rounded-lg border border-white/20 text-white hover:bg-white/10 transition font-medium backdrop-blur-sm"
             target="_blank"
             rel="noopener noreferrer"
