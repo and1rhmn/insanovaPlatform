@@ -17,7 +17,7 @@ import {
   //   FileText,
 } from "lucide-react";
 
-/* ================= TYPE ================= */
+/* ================= type ================= */
 type Arsip = {
   id: number;
   title: string;
