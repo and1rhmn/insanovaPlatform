@@ -71,7 +71,7 @@ export default function KelolaInovasiPage() {
   return (
     <div className="space-y-6">
       {/* ================= HEADER ================= */}
-      <div className="flex items-start justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div>
           <h1 className="text-base font-semibold text-gray-800">
             Kelola Inovasi
@@ -198,7 +198,7 @@ export default function KelolaInovasiPage() {
             "
           >
             {/* TOP */}
-            <div className="flex justify-between items-start gap-4">
+            <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-4">
               {/* LEFT */}
               <div className="space-y-4 flex-1">
                 {/* STATUS */}
@@ -236,20 +236,20 @@ export default function KelolaInovasiPage() {
                 </div>
 
                 {/* TITLE */}
-                <h3 className="text-base font-semibold text-gray-900 leading-snug">
+                <h3 className="text-base font-semibold text-gray-900 leading-snug break-words">
                   {item.judul}
                 </h3>
 
                 {/* TAG */}
-                <p className="text-xs text-gray-500">{item.kataKunci}</p>
+                <p className="text-xs text-gray-500 break-words">
+                  {item.kataKunci}
+                </p>
               </div>
 
               {/* LOCATION */}
               <div
                 className="
-                  flex items-center gap-1.5
-                  text-xs text-gray-400
-                  whitespace-nowrap
+                  flex items-center gap-1.5 text-xs text-gray-400 flex-wrap
                 "
               >
                 <MapPin size={14} />
@@ -261,7 +261,7 @@ export default function KelolaInovasiPage() {
             <div className="border-t border-gray-100 my-5" />
 
             {/* BOTTOM */}
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
               {/* TEAM */}
               <div className="flex items-center gap-3">
                 <div
@@ -293,7 +293,7 @@ export default function KelolaInovasiPage() {
               </div>
 
               {/* ACTION */}
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row gap-2 w-full lg:w-auto">
                 <button
                   className="
                     px-4 py-2
@@ -312,8 +312,9 @@ export default function KelolaInovasiPage() {
                 <button
                   onClick={() => setSelectedItem(item)}
                   className="
-    px-4 py-2
-    rounded-xl
+  w-full sm:w-auto
+px-4 py-2
+rounded-xl
     border border-gray-200
     bg-white
     hover:bg-gray-50
@@ -328,13 +329,15 @@ export default function KelolaInovasiPage() {
 
                 <button
                   className="
-                    px-4 py-2
-                    rounded-xl
+                   w-full sm:w-auto
+px-4 py-2
+rounded-xl
                     border border-red-200
                     bg-white
                     hover:bg-red-50
                     text-red-500
                     text-sm
+                    flex items-center justify-center
                     font-medium
                     transition
                     flex items-center gap-2

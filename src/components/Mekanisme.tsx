@@ -52,14 +52,14 @@ export default function Mekanisme() {
         <motion.div
           animate={{ scale: [1, 1.15, 1], opacity: [0.25, 0.35, 0.25] }}
           transition={{ duration: 12, repeat: Infinity }}
-          className="absolute top-1/2 left-1/2 w-[700px] h-[700px] -translate-x-1/2 -translate-y-1/2 bg-emerald-300/20 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/2 w-[700px] h-[700px] -translate-x-1/2 -translate-y-1/2 bg-emerald-300/20 rounded-full blur-3xl transform-gpu will-change-transform"
         />
 
         {/* RIGHT GLOW */}
         <motion.div
           animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
           transition={{ duration: 14, repeat: Infinity }}
-          className="absolute top-[-140px] right-[-140px] w-[550px] h-[550px] bg-emerald-200/10 rounded-full blur-3xl"
+          className="absolute top-[-140px] right-[-140px] w-[550px] h-[550px] bg-emerald-200/10 rounded-full blur-3xl "
         />
 
         {/* LEFT GLOW */}

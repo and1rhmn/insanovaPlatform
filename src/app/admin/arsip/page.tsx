@@ -112,9 +112,9 @@ export default function ArsipPage() {
   return (
     <div className="p-0 space-y-6">
       {/* HEADER */}
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-semibold text-gray-800">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="min-w-0">
+          <h1 className="text-xl md:text-2xl font-semibold text-gray-800">
             Arsip Pemenang INSANOVA
           </h1>
           <p className="text-sm text-gray-500">
@@ -123,7 +123,23 @@ export default function ArsipPage() {
         </div>
 
         {/* // ================= HEADER BUTTON ================= */}
-        <button className="flex items-center gap-2 bg-emerald-900 hover:bg-gray active:scale-[0.98] text-white px-4 py-2 rounded-lg text-sm transition-all duration-150 cursor-pointer">
+        <button
+          className="
+    w-full md:w-auto
+    justify-center
+    flex items-center gap-2
+    bg-emerald-900
+    hover:bg-emerald-800
+    active:scale-[0.98]
+    text-white
+    px-4 py-2
+    rounded-lg
+    text-sm
+    transition-all
+    duration-150
+    cursor-pointer
+  "
+        >
           <Plus size={16} />
           Tambah Data
         </button>
@@ -146,7 +162,18 @@ export default function ArsipPage() {
         {filteredData.map((item) => (
           <div
             key={item.id}
-            className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group"
+            onClick={() => setSelectedItem(item)}
+            className="
+    bg-white
+    rounded-2xl
+    overflow-hidden
+    shadow-sm
+    hover:shadow-xl
+    transition
+    duration-300
+    group
+    cursor-pointer
+  "
           >
             {/* IMAGE */}
             <div className="relative h-48 w-full overflow-hidden">
@@ -201,7 +228,10 @@ export default function ArsipPage() {
               <div className="flex items-center justify-between pt-2">
                 <span className="text-xs text-gray-400">Tahun {item.year}</span>
 
-                <div className="flex items-center gap-1">
+                <div
+                  className="flex items-center gap-1"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   {/* ACTION WRAPPER */}
                   <div
                     className={`flex items-center bg-gray-50 border border-gray-200 rounded-lg p-1 transition-all duration-300 overflow-hidden ${openId === item.id ? "w-36" : "w-10"}`}
