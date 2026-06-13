@@ -56,6 +56,7 @@ export default function KelolaInovasiPage() {
 
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
 
+  const [scores, setScores] = useState<Record<number, number>>({});
   const [selectedItem, setSelectedItem] = useState<Inovasi | null>(null);
   const filteredData = dummyData.filter((item) => {
     const matchSearch =
@@ -73,10 +74,10 @@ export default function KelolaInovasiPage() {
       {/* ================= HEADER ================= */}
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
         <div>
-          <h1 className="text-base font-semibold text-gray-800">
+          {/* "text-base font-semibold text-gray-800" */}
+          <h1 className="text-sm sm:text-base font-bold break-words">
             Kelola Inovasi
           </h1>
-
           <p className="text-sm text-gray-500 mt-1">
             Manajemen dan review inovasi INSANOVA
           </p>
@@ -236,7 +237,7 @@ export default function KelolaInovasiPage() {
                 </div>
 
                 {/* TITLE */}
-                <h3 className="text-base font-semibold text-gray-900 leading-snug break-words">
+                <h3 className="text-base font-semibold text-gray-900 break-words break-words leading-snug break-words">
                   {item.judul}
                 </h3>
 
@@ -263,7 +264,7 @@ export default function KelolaInovasiPage() {
             {/* BOTTOM */}
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
               {/* TEAM */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 min-w-0">
                 <div
                   className="
                     w-11 h-11
@@ -356,36 +357,35 @@ rounded-xl
       {selectedItem && (
         <div
           className="
-      fixed inset-0 z-50
-      bg-black/40
-      backdrop-blur-[2px]
-      flex items-center justify-center
-      p-6
-    "
+    fixed inset-0 z-50
+    bg-black/40
+    backdrop-blur-[2px]
+    flex items-center justify-center
+    p-2 sm:p-4 md:p-6
+  "
           onClick={() => setSelectedItem(null)}
         >
           <div
             onClick={(e) => e.stopPropagation()}
             className="
         w-full
-        max-w-5xl
-        max-h-[92vh]
-        overflow-y-auto
-        bg-white
-        rounded-2xl
-        border border-gray-200
-        shadow-2xl
+  max-w-5xl
+  max-h-[95vh]
+  overflow-y-auto
+  bg-white
+  rounded-xl sm:rounded-2xl
       "
           >
             {/* HEADER */}
             <div
               className="
-          flex items-center justify-between
-          px-8 py-6
-          border-b border-gray-200
+            flex items-center justify-between
+  px-4 py-4
+  sm:px-6 sm:py-5
+  md:px-8 md:py-6
         "
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 min-w-0">
                 <div
                   className="
               w-6 h-6
@@ -395,7 +395,7 @@ rounded-xl
             "
                 />
 
-                <h2 className="text-base font-semibold text-gray-900">
+                <h2 className="text-sm sm:text-base font-semibold text-gray-900 break-words">
                   Detail Inovasi
                 </h2>
               </div>
@@ -403,19 +403,19 @@ rounded-xl
               <button
                 onClick={() => setSelectedItem(null)}
                 className="
-            text-gray-700
-            hover:text-black
-            transition
-            text-sm
-            leading-none
-          "
+    w-8 h-8
+    flex items-center justify-center
+    rounded-lg
+    cursor-pointer
+    hover:bg-gray-100
+  "
               >
                 ×
               </button>
             </div>
 
             {/* BODY */}
-            <div className="px-8 py-8">
+            <div className="px-4 py-5 sm:px-6 sm:py-6 md:px-8 md:py-8">
               {/* TITLE */}
               <h1
                 className="
@@ -431,11 +431,13 @@ rounded-xl
               {/* META */}
               <div
                 className="
-            grid grid-cols-2
-            gap-10
-            mt-8
-            pt-8
-            border-t border-gray-200
+           grid
+    grid-cols-1
+    md:grid-cols-2
+    gap-6 md:gap-10
+    mt-8
+    pt-8
+    border-t border-gray-200
           "
               >
                 <div>
@@ -451,7 +453,7 @@ rounded-xl
                     Team Name
                   </p>
 
-                  <h3 className="text-base font-semibold text-gray-900">
+                  <h3 className="text-base font-semibold text-gray-900 break-words break-words">
                     {selectedItem.namaTim}
                   </h3>
                 </div>
@@ -469,7 +471,7 @@ rounded-xl
                     Region Code
                   </p>
 
-                  <h3 className="text-base font-semibold text-gray-900">
+                  <h3 className="text-base font-semibold text-gray-900 break-words break-words">
                     900 - Kantor Pusat
                   </h3>
                 </div>
@@ -523,15 +525,15 @@ rounded-xl
             mt-8
             border border-gray-200
             rounded-2xl
-            p-7
+            p-4 sm:p-6 md:p-7
             bg-[#FCFCFC]
           "
               >
-                <h3 className="text-base font-semibold text-gray-900 mb-7">
+                <h3 className="text-base font-semibold text-gray-900 break-words break-words break-words mb-7">
                   Team Details
                 </h3>
 
-                <div className="grid grid-cols-2 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
                   {/* KETUA */}
                   <div>
                     <p
@@ -547,7 +549,7 @@ rounded-xl
                       Ketua
                     </p>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-start gap-4 min-w-0">
                       <div
                         className="
                     w-11 h-11
@@ -563,7 +565,7 @@ rounded-xl
                       </div>
 
                       <div>
-                        <h4 className="text-base font-semibold text-gray-900">
+                        <h4 className="text-base font-semibold text-gray-900 break-words break-words break-words">
                           Anna Wijayanti
                         </h4>
 
@@ -589,7 +591,7 @@ rounded-xl
                       Anggota
                     </p>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-start gap-4 min-w-0">
                       <div
                         className="
                     w-11 h-11
@@ -605,7 +607,7 @@ rounded-xl
                       </div>
 
                       <div>
-                        <h4 className="text-base font-semibold text-gray-900">
+                        <h4 className="text-base font-semibold text-gray-900 break-words break-words break-words">
                           Ni Nyoman Ayu C.K.Y.D
                         </h4>
 
@@ -620,10 +622,10 @@ rounded-xl
 
               {/* SECTION */}
               <div className="mt-10">
-                <div className="flex items-start gap-4 mb-4">
+                <div className="flex items-start gap-3 sm:gap-4 mb-4">
                   <div className="w-1 bg-[#062E23] rounded-xl h-10 mt-1" />
 
-                  <h3 className="text-base font-semibold text-gray-900">
+                  <h3 className="text-base font-semibold text-gray-900 break-words break-words">
                     Latar Belakang
                   </h3>
                 </div>
@@ -643,10 +645,10 @@ rounded-xl
 
               {/* SECTION */}
               <div className="mt-10">
-                <div className="flex items-start gap-4 mb-4">
+                <div className="flex items-start gap-3 sm:gap-4 mb-4">
                   <div className="w-1 bg-[#062E23] rounded-xl h-10 mt-1" />
 
-                  <h3 className="text-base font-semibold text-gray-900">
+                  <h3 className="text-base font-semibold text-gray-900 break-words break-words">
                     Solusi
                   </h3>
                 </div>
@@ -661,10 +663,10 @@ rounded-xl
                 </p>
                 {/* ================= COST VS BENEFIT ================= */}
                 <div className="mt-10">
-                  <div className="flex items-start gap-4 mb-4">
+                  <div className="flex items-start gap-3 sm:gap-4 mb-4">
                     <div className="w-1 bg-[#062E23] rounded-xl h-10 mt-1" />
 
-                    <h3 className="text-base font-semibold text-gray-900">
+                    <h3 className="text-base font-semibold text-gray-900 break-words break-words">
                       Cost vs Benefit
                     </h3>
                   </div>
@@ -733,10 +735,10 @@ rounded-xl
 
                 {/* ================= DAMPAK INOVASI ================= */}
                 <div className="mt-10">
-                  <div className="flex items-start gap-4 mb-4">
+                  <div className="flex items-start gap-3 sm:gap-4 mb-4">
                     <div className="w-1 bg-[#062E23] rounded-xl h-10 mt-1" />
 
-                    <h3 className="text-base font-semibold text-gray-900">
+                    <h3 className="text-base font-semibold text-gray-900 break-words break-words">
                       Dampak Inovasi
                     </h3>
                   </div>
@@ -757,7 +759,7 @@ rounded-xl
               <div className="mt-10 pt-8 border-t border-dashed border-gray-300">
                 {/* TITLE */}
                 <div className="flex items-center justify-between mb-8">
-                  <h3 className="text-base font-semibold text-gray-900">
+                  <h3 className="text-base font-semibold text-gray-900 break-words break-words">
                     Form Penilaian Inovasi
                   </h3>
                 </div>
@@ -822,21 +824,31 @@ rounded-xl
                       {section.options.map((option, idx) => (
                         <label
                           key={idx}
-                          className="
-              border border-gray-200
-              rounded-2xl
-              p-4
-              cursor-pointer
-              hover:border-[#0F3D2E]
-              hover:bg-[#F7FBF9]
-              transition
-              group
-            "
+                          className={`
+    border
+    rounded-2xl
+    p-4
+    cursor-pointer
+    transition
+
+    ${
+      scores[index] === idx
+        ? "border-[#0F3D2E] bg-[#F7FBF9]"
+        : "border-gray-200 hover:border-[#0F3D2E] hover:bg-[#F7FBF9]"
+    }
+  `}
                         >
                           <input
                             type="radio"
                             name={`section-${index}`}
-                            className="hidden peer"
+                            checked={scores[index] === idx}
+                            onChange={() =>
+                              setScores((prev) => ({
+                                ...prev,
+                                [index]: idx,
+                              }))
+                            }
+                            className="hidden"
                           />
 
                           <div className="space-y-1">
@@ -853,12 +865,12 @@ rounded-xl
                             </p>
 
                             <p
-                              className="
-                  text-sm
-                  text-gray-700
-                  font-medium
-                  leading-6
-                "
+                              className={`
+    text-sm
+    font-medium
+    leading-6
+    ${scores[index] === idx ? "text-[#0F3D2E]" : "text-gray-700"}
+  `}
                             >
                               {option}
                             </p>
@@ -896,18 +908,21 @@ rounded-xl
                 </div>
 
                 {/* BUTTON */}
-                <div className="flex justify-end mt-8">
+                {/* <div className="flex justify-end mt-8"> */}
+                {/* <div className="flex justify-stretch sm:justify-end mt-8"> */}
+                <div className="flex flex-col sm:flex-row sm:justify-end mt-8">
                   <button
                     className="
-        px-6 py-3
-        rounded-2xl
-        bg-[#0F3D2E]
-        hover:bg-[#124734]
-        text-white
-        text-sm
-        font-medium
-        transition
-        shadow-sm
+         w-full sm:w-auto
+    px-6 py-3
+    rounded-2xl
+    bg-[#0F3D2E]
+    hover:bg-[#124734]
+    text-white
+    text-sm
+    font-medium
+    transition
+    shadow-sm
       "
                   >
                     Simpan Penilaian
