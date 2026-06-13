@@ -45,7 +45,7 @@ const dummyData: Arsip[] = [
     category: "Digitalisasi Internal",
     team: "Tim IT Performance",
     deputi: "Deputi Teknologi Informasi",
-    members: ["Andi", "Budi", "Citra", "Dewi"],
+    members: ["Andi", "Doni", "Citra", "Dewi"],
     winner: "Juara 1",
     winnerDesc:
       "Meningkatkan efisiensi monitoring kinerja hingga 40% dan mempercepat pengambilan keputusan Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora nobis vitae doloremque culpa fuga, velit ipsa illo reprehenderit, nostrum eos exercitationem odit dignissimos optio aperiam mollitia, enim explicabo ratione animi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus molestiae iusto assumenda. Explicabo modi possimus pariatur et, eos vero quos, minima facere reprehenderit quasi non fugit quisquam perspiciatis, maiores vel!.",
@@ -62,7 +62,7 @@ const dummyData: Arsip[] = [
     category: "Digitalisasi Internal",
     team: "Tim IT Performance",
     deputi: "Deputi Teknologi Informasi",
-    members: ["Andi", "Budi", "Citra", "Dewi"],
+    members: ["Andi", "Doni", "Citra", "Dewi"],
     winner: "Juara 3",
     winnerDesc:
       "Meningkatkan efisiensi monitoring kinerja hingga 40% dan mempercepat pengambilan keputusan Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora nobis vitae doloremque culpa fuga, velit ipsa illo reprehenderit, nostrum eos exercitationem odit dignissimos optio aperiam mollitia, enim explicabo ratione animi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus molestiae iusto assumenda. Explicabo modi possimus pariatur et, eos vero quos, minima facere reprehenderit quasi non fugit quisquam perspiciatis, maiores vel!.",
