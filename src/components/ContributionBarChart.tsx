@@ -50,7 +50,7 @@ export default function ContributionBarChart() {
           normalized = result;
         } else if (result?.values && Array.isArray(result.values)) {
           normalized = result.values
-            .filter((row: any) => row?.[0] && row?.[1])
+            .filter((row: string[]) => row?.[0] && row?.[1])
             .map((row: string[]) => ({
               label: String(row[0] ?? ""),
               value: Number(row[1] ?? 0),

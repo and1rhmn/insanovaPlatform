@@ -51,9 +51,9 @@ export async function GET() {
     }
 
     return Response.json(data);
-  } catch (err: any) {
+  } catch (err: unknown) {
     return Response.json({
-      error: err.message,
+      error: err instanceof Error ? err.message : "Unknown error",
       data: [],
     });
   }
